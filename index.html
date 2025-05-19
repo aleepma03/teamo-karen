@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Karen 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #ffccff);
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+      text-align: center;
+      color: #ff3399;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 100px;
+      text-shadow: 2px 2px 5px white;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -15px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        top: 100vh;
+        opacity: 1;
+      }
+      100% {
+        top: -100px;
+        left: calc(100vw * var(--x));
+        opacity: 0;
+      }
+    }
+
+    .flowers {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .flower {
+      width: 60px;
+      height: 60px;
+      background: pink;
+      border-radius: 50%;
+      margin: 5px;
+      box-shadow: 0 0 10px #ff99cc;
+    }
+
+    audio {
+      display: tu-musica.mp3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Te amo muchoooo Karennn💕
+  con mucho amor, ale.❤️🌸</h1>
+
+  <div class="flowers">
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="tu-musica.mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.setProperty('--x', Math.random());
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
